@@ -1,0 +1,43 @@
+.photos {
+
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo {
+  height: auto;
+  width: 200px;
+  background-color: rgb(255, 109, 172);
+  border-radius: 10%;
+}
+
+img:hover{
+    opacity: 50%;
+    cursor: pointer;
+    border-radius: 10%;
+}
+.banana {
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+}
+.h1 {
+  text-align: center;
+}
+
+
+
+.mango {
+  background-color: rgb(255, 255, 255);
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+.mango:hover {
+  background-color: rgb(190, 241, 255);
+}
+.mango:active {
+  background-color: rgb(191, 191, 191);
+}

@@ -1,18 +1,34 @@
 let button = document.getElementById("camerabtn");
 
-
 let images = [
-    "https://imgur.com/gallery/NUyttbn",
-    "https://imgur.com/gallery/lVlPvCB",
-    "https://imgur.com/gallery/VWjRf",
-    
-  ];
+  "small-child.jpg",
+  "textiles-dress.png",
+  "small-child.jpg",
+  "textiles-dress.png",
+  "small-child.jpg",
+  "textiles-dress.png",
+  "small-child.jpg",
+];
 
-button.addEventListener(
-    "click", 
-    currentSlide = 0 + 1,
-    document.getElementById("slideImg").src = images[currentSlide]
-);
+let currentSlide = 0 ;
+
+
+button.addEventListener("click", function () {
+  currentSlide += 1;
+  console.log("+1");
+  console.log(currentSlide, "pog")
+  document.getElementById("slideImg").src = images[currentSlide];
+
+  if (currentSlide > 5) {
+    currentSlide = 0 ;
+  }
+  
+});
 //myDate.innerHTML = JSON.stringify(slides),
-let currentSlide = 0; 
+
 // document.getElementById("slideImg").src = images[currentSlide]
+
+// if (currentSlide == 5) {
+//   currentslide = 0;
+//   console.log("back to 0");
+// }

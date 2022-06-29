@@ -1,0 +1,25 @@
+div {
+    border: 1px solid red;
+}
+
+.main {
+    display: flex;
+    background-color: rgb(255, 237, 240);
+}
+
+.navigation {
+    width: 30%;
+}
+
+.photos {
+    width: 70%;
+    background-color: aquamarine;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.photo {
+    height: 100px;
+    width: 80px;
+    background-color: burlywood;
+}
