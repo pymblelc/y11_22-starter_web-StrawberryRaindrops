@@ -9,11 +9,11 @@ let imageURL = myImage.src;
 myButton.addEventListener("click", function () {
   ImageAPI.analyseFaces(imageURL, function (data) {
     for (let i = 0; i < data.length; i++) {
-      let finalInfo = data[i].faceAttributes.age;
+      let finalInfo = data[i].faceAttributes.age; 
       let lipstick = data[1].faceAttributes.makeup.lipMakeup;
       let txt =
         "<p>Face " +
-        (i + 1) +
+        (i + 1) + 
         ": age is " +
         finalInfo +
         ", lipstick = " +
@@ -57,3 +57,4 @@ faces[0].age // 43
 faces[1].style // 32
 faces[2].gender // "female"
 faces[0].gender // undefined
+
