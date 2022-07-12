@@ -13,15 +13,15 @@ let images = [
 let currentSlide = 0 ;
 
 
-button.addEventListener("click", function () {
+camerabtn.addEventListener("click", function () {
   currentSlide += 1;
   console.log("+1");
   console.log(currentSlide, "pog")
   document.getElementById("slideImg").src = images[currentSlide];
 
-  if (currentSlide > 5) {
-    currentSlide = 0 ;
-  }
+  // if (currentSlide > 5) {
+  //   currentSlide = 0 ;
+  // }
   
 });
 //myDate.innerHTML = JSON.stringify(slides),

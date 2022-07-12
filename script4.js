@@ -3,31 +3,118 @@ let myButton = document.getElementById("btnAnalyse");
 let results = document.getElementById("myText");
 
 let imageURL = myImage.src;
+//the webcam thingy
+let startCameraBtn = document.getElementById("startCamera");
+let stopCameraBtn = document.getElementById("stopCamera");
+let takePhotoBtn = document.getElementById("takePhoto");
+let myWebcam = document.getElementById("webcam");
+let myCanvas = document.getElementById("canvas");
+let submitBtn = document.getElementById("submit");
+// const snapSoundElement = document.getElementById('snapSound');
+
+let webcam = new Webcam(myWebcam, "user", myCanvas); // is this making a function
+
+
+startCameraBtn.addEventListener("click", function() {
+    webcam.start()
+    .then((result) => {
+        console.log("webcam started!");
+    })
+    .catch((error) => {
+        console.log("error D:");
+    });
+})
+
+stopCameraBtn.addEventListener("click", function() {
+    webcam.stop();
+})
+
+takePhotoBtn.addEventListener("click", function () {
+    var picture = webcam.snap(); // what 
+    webcam.stop();
+  });
+
+  submitBtn.addEventListener("click", function() {
+        let blob = new Blob([fileInput.files[0]]);
+        ImageAPI.analyseFacesBlob(blob,(data) => {
+                console.log(data);
+            }
+        );
+  })
+
+
+// var picture = webcam.snap();
 
 // results.innerHTML = imageURL;
+
 
 myButton.addEventListener("click", function () {
   ImageAPI.analyseFaces(imageURL, function (data) {
     for (let i = 0; i < data.length; i++) {
-      let finalInfo = data[i].faceAttributes.age; 
+      let finalInfo = data[i].faceAttributes.hair.hairColor[0].color;
       let lipstick = data[1].faceAttributes.makeup.lipMakeup;
+      let glasses = data[1].faceAttributes.glasses;
       let txt =
         "<p>Face " +
-        (i + 1) + 
+        (i + 1) +
         ": age is " +
         finalInfo +
         ", lipstick = " +
         lipstick +
-        "</p>";
+        " are they wearing glasses? : " +
+        glasses;
+      ("</p>");
 
       myText.innerHTML += txt;
     }
     console.log(data);
-    // let finalInfo = 'Dr hadwen looks about ' + data[0].faceAttributes.age + 'years old';
-    // finalInfo += 'and has' + data[0].faceAttributes.facialhair.moustache + 'moustache';
-    results.innerHTML = finalInfo;
+    
   });
 });
+
+if (finalInfo == "black") {
+  hairText == hair[0].top; //this tells hairtext to match with the matching hair colour from the hair array
+}
+
+if (finalInfo == "blond") {
+  hairText == hair[1].top; //this tells hairtext to match with the matching hair colour from the hair array
+}
+function text() {
+  textBox1.innerHTML += hairtext; //this function puts things into text box in like a flex div thing i'll make later
+}
+
+
+
+
+//this is where i'll write a little description for each top
+hair = [
+  {
+    hair: "black",
+    top: "uhhhhhhhhhhh poggers champers",
+  },
+  {
+    hair: "blond",
+    top: "frilly top hehe",
+  }, 
+  {
+    hair:"brown",
+    top: "this top ahahaha",
+  },
+  {
+    hair: "red",
+    top: "comfyyyyy yah",
+  },
+  {
+    hair: "unknown&other",
+    top: "thissss thingy"
+  },
+  {
+    hair: "white&gray",
+    top: "bonk"
+  }
+];
+
+//hair[0].top; // uhhhhhhhhh poggers champers
 
 var faces; // undefined
 // faces = [
@@ -35,26 +122,23 @@ var faces; // undefined
 //     "world",
 // ];
 faces = [
-    {
-        "age": data[0].faceAttributes.age,
-        "style": 0.
-    },
-    {
-        "age": 16,
-        "style": 32
-    },
+  {
+    //"age": data[0].faceAttributes.age,
+    style: 0,
+  },
+  {
+    age: 16,
+    style: 32,
+  },
 ];
 // add a new face to the faces list
-faces.push(
-    {
-        "mo": 0,
-        "age": 124,
-        "style": 64,
-        "gender": "female"
-    }
-);
-faces[0].age // 43
-faces[1].style // 32
-faces[2].gender // "female"
-faces[0].gender // undefined
-
+faces.push({
+  mo: 0,
+  age: 124,
+  style: 64,
+  gender: "female",
+});
+faces[0].age; // 43
+faces[1].style; // 32
+faces[2].gender; // "female"
+faces[0].gender; // undefined
