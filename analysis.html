@@ -34,18 +34,6 @@
   [endif]-->
 
   <body>
-    <button id="startCamera"> Start Camera </button>
-    <button id="stopCamera"> Stop Camera </button>
-    <video id="webcam" width="160" height="120"> </video>
-    <button id="takePhoto"> Take Photo </button>
-    <canvas id="canvas" class="capturedImage">  </canvas>
-
-    <button id="submit"> Submit </button>
-    <audio id="snapSound" src="audio/snap.wav" preload = "auto"></audio>
-
-    <!-- <video id="webcam" autoplay playsinline width="640" height="480"></video>
-    <canvas id="canvas" class="d-none"></canvas>
-    <audio id="snapSound" src="audio/snap.wav" preload="auto"></audio> -->
     <img
       id="myPhoto"
       width="200"
@@ -53,7 +41,21 @@
       alt="a photo"
     />
 
+    <p><input type="button" value="Analyse" id="btnAnalyse" /></p>
+
     <p id="myText">analysing photo</p>
     <p id="textBox1">hi</p>
+
+    <!--webcam stuff-->
+
+    <button id="startCamera">Start Camera</button>
+    <button id="stopCamera">Stop Camera</button>
+    <video id="webcam" width="160" height="120"></video>
+    <button id="takePhoto">Take Photo</button>
+    <canvas id="canvas" class="capturedImage"> </canvas>
+
+    <button id="submit">Submit</button>
+    <audio id="snapSound" src="audio/snap.wav" preload="auto"></audio>
+
   </body>
 </html>

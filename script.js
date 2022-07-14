@@ -13,17 +13,17 @@ let images = [
 let currentSlide = 0 ;
 
 
-camerabtn.addEventListener("click", function () {
-  currentSlide += 1;
-  console.log("+1");
-  console.log(currentSlide, "pog")
-  document.getElementById("slideImg").src = images[currentSlide];
+// camerabtn.addEventListener("click", function () {
+//   currentSlide += 1;
+//   console.log("+1");
+//   console.log(currentSlide, "pog")
+//   document.getElementById("slideImg").src = images[currentSlide];
 
   // if (currentSlide > 5) {
   //   currentSlide = 0 ;
   // }
   
-});
+// });
 //myDate.innerHTML = JSON.stringify(slides),
 
 // document.getElementById("slideImg").src = images[currentSlide]
