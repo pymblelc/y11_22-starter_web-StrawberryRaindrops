@@ -1,6 +1,6 @@
-let myImage = document.getElementById("myPhoto");
-let myButton = document.getElementById("btnAnalyse");
-let results = document.getElementById("myText");
+// let myImage = document.getElementById("myPhoto");
+// let myButton = document.getElementById("btnAnalyse");
+// let results = document.getElementById("myText");
 
 // let imageURL = myImage.src; <- this was how to get the img then send it through the api
 //the webcam thingy
@@ -13,7 +13,7 @@ let ctx = myCanvas.getContext("2d");
 let submitBtn = document.getElementById("submit");
 // const snapSoundElement = document.getElementById('snapSound');
 
-let webcam = new Webcam(myWebcam, "user", myCanvas); // is this making a function
+let webcam = new Webcam(myWebcam, "user", myCanvas); 
 
 startCameraBtn.addEventListener("click", function () {
   webcam
@@ -38,7 +38,7 @@ takePhotoBtn.addEventListener("click", function () {
 submitBtn.addEventListener("click", function () {
   myCanvas.toBlob(function(blob) {
     ImageAPI.analyseFacesBlob(blob, (data) => {
-      //console.log(data); used to be here but i just replaced it with my calculation stuff
+      
       for (let i = 0; i < data.length; i++) {
         let haircolor = data[i].faceAttributes.hair.hairColor[0].color;
         let lipstick = data[i].faceAttributes.makeup.lipMakeup;
@@ -149,12 +149,16 @@ pants = [
   },
   {
     glasses: "ReadingGlasses",
+    text: "a",
+    image:"textiles-dress.png",
   },
 ];
     
 shoes = [
   {
-
+    lip: "true",
+    text: "r",
+    image: "textiles-dress.png,"
   }
 ];
     
