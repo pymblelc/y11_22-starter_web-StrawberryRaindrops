@@ -1,15 +1,19 @@
-
+.box {
+  width: 80%;
+  justify-content: center;
+}  
 .container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around; /* vertical alignment */
   align-content: center;         /* horizontal alignment */
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;            /* essential for this method to work */
   background-color: lightyellow;
-  border: 1px dashed red;
-  min-height: auto;
+  border: 1px double rgb(0, 0, 0);
+  margin: 4px;
+
 }
 * {
   box-sizing: border-box;
@@ -22,15 +26,15 @@
 }
 
 .right {
-  background-color: dodgerblue;
+  background-color: rgb(196, 220, 255);
   padding: 10px;
   flex: 70%;
 }
-@media (max-width: 1000px) {
+/* @media (max-width: 1000px) {
   .flex-item-right, .flex-item-left {
     flex: 100%;
   }
-}
+} */
 .hairImg {
-  width: fit-content;
+  width: 600px;
 }
