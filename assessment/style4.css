@@ -11,9 +11,14 @@
   font-size: 25px;
   text-align: center;            /* essential for this method to work */
   background-color: lightyellow;
-  border: 1px double rgb(0, 0, 0);
+  border: 2px solid black;
+  border-radius: 5px;
   margin: 4px;
 
+}
+.box {
+  align-items: center;
+  
 }
 * {
   box-sizing: border-box;
@@ -23,6 +28,7 @@
   background-color: #f1f1f1;
   padding: 10px;
   width: 30%;
+  border-radius: 10%;
 }
 
 .right {
