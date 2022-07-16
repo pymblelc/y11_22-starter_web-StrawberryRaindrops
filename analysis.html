@@ -15,6 +15,7 @@
     <!-- this is a library -->
     <script src="ai.js" defer></script>
     <script src="script4.js" defer></script>
+    <link rel="stylesheet" href="style4.css" />
   </head>
 
   <!--[if gte mso 9
@@ -34,17 +35,38 @@
   [endif]-->
 
   <body>
-    <img
+    <!-- <img
       id="myPhoto"
       width="200"
       src="https://www.theland.com.au/images/transform/v1/crop/frm/HP8JNNb9L5GxeLhGSmNhXK/491ff6bf-d60b-469b-89f8-432539ffb0d6.JPG/r500_0_2908_2270_w1200_h678_fmax.jpg"
       alt="a photo"
     />
 
-    <p><input type="button" value="Analyse" id="btnAnalyse" /></p>
+    <p><input type="button" value="Analyse" id="btnAnalyse" /></p> -->
 
-    <p id="myText">analysing photo</p>
-    <p id="textBox1">hi</p>
+    <!-- <p id="myText">analysing photo</p> -->
+   
+    <div class="container">
+      
+      <div class="left" id="textBox1">
+        <img src="" id="hairImg" class="left" />
+      </div>
+      <div class="right"id="textBox2"></div>
+    </div>
+
+    <div class="container">
+      
+      <div class="left" id="textBox3">
+        <img src="" id="hairImg" class="left" />
+      </div>
+      <div class="right"id="textBox4"></div>
+    </div>
+
+    <div class="container">
+      <div class="left" id="textBox5">left</div>
+      <div class="right"id="textBox6">right</div>
+    </div>
+
 
     <!--webcam stuff-->
 
@@ -59,3 +81,4 @@
 
   </body>
 </html>
+

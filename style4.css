@@ -1,0 +1,36 @@
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around; /* vertical alignment */
+  align-content: center;         /* horizontal alignment */
+  font-size: 30px;
+  text-align: center;            /* essential for this method to work */
+  background-color: lightyellow;
+  border: 1px dashed red;
+  min-height: auto;
+}
+* {
+  box-sizing: border-box;
+}
+
+.left {
+  background-color: #f1f1f1;
+  padding: 10px;
+  width: 30%;
+}
+
+.right {
+  background-color: dodgerblue;
+  padding: 10px;
+  flex: 70%;
+}
+@media (max-width: 1000px) {
+  .flex-item-right, .flex-item-left {
+    flex: 100%;
+  }
+}
+.hairImg {
+  width: fit-content;
+}
