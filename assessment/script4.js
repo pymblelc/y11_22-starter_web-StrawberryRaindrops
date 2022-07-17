@@ -51,7 +51,16 @@ submitBtn.addEventListener("click", function () {
   
         // myText.innerHTML += txt;
         
+        // function text (number) {
+        //   let hairText = hair[number].text; 
+        //   let hairImg = hair[number].image;
+        //   document.getElementById("hairImg").src = hairImg
+        //   textBox2.innerHTML += hairText;
+        // }
+
         if (haircolor == "black") {
+          let number = 0
+        
           let hairText = hair[0].text; //this tells hairtext to match with the matching hair colour from the hair array
           let hairImg = hair[0].image;
           document.getElementById("hairImg").src = hairImg
