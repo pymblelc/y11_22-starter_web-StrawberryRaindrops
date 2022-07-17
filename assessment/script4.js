@@ -46,6 +46,7 @@ submitBtn.addEventListener("click", function () {
         if (i >= 1){
           console.log("too many people")
         }
+        console.log(data[i].faceAttributes.hair.hairColor[1].confidence);
         console.log(data);
   
         // myText.innerHTML += txt;
@@ -137,7 +138,7 @@ hair = [
   {
     hair: "white&gray",
     text: "bonk",
-  },
+  }
 ];
 
 
@@ -151,7 +152,7 @@ pants = [
     glasses: "ReadingGlasses",
     text: "a",
     image:"textiles-dress.png",
-  },
+  }
 ];
     
 shoes = [
@@ -159,6 +160,11 @@ shoes = [
     lip: "true",
     text: "r",
     image: "textiles-dress.png,"
+  },
+  {
+    lip: "false",
+    text: "r",
+    image: "textile-dress.png",
   }
 ];
     

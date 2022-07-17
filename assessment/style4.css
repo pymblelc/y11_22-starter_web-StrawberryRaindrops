@@ -1,46 +1,62 @@
-
+body {
+background: linear-gradient(90deg, rgb(128, 126, 160) 0%, rgb(200, 141, 196) 50%, rgb(151, 202, 212) 100%);
+}
 .box {
   width: 100%;
   justify-content: center;
   align-items: center;
-  align-content: center;         /* horizontal alignment */
+  align-content: center;      
    
 }  
 
 .container {
   display: flex;
-  font-size: 25px;
-  text-align: center;            /* essential for this method to work */
-  background-color: lightyellow;
-  border: 2px solid black;
-  border-radius: 5px;
+  font-size: 30px;
+  text-align: center;          
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 10%;
   margin: 4px;
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 10%;
+  margin-right: 10%;
+
 }
 * {
   box-sizing: border-box;
 }
 
 .left {
-  background-color: #f1f1f1;
+  background-color: #fffbe1;
   padding: 10px;
-  width: 30%;
+  width: 20%;
   border-radius: 10%;
 
 }
 
+
 .right {
-  background-color: rgb(196, 220, 255);
+  background-color: rgba(255, 242, 211, 0.44);
   padding: 10px;
   flex: 70%;
+ 
   
 }
-/* @media (max-width: 1000px) {
-  .flex-item-right, .flex-item-left {
-    flex: 100%;
-  }
-} */
-.hairImg {
-  width: 300px;
+
+img:hover{
+  transform: scale(1.05);
+  cursor: pointer;
+  border-radius: 10%;
+}
+.header {
+ 
+  flex-wrap: wrap;
+  display: flex;
+  text-align: center;
+  font-size: 1.75vw;
+  background-image: url(./Images/forest-g20ea03b8e_1920.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 40vw;
+  font-family: 'Libre Baskerville', serif;
+  
+
 }
