@@ -6,7 +6,15 @@ body {
     rgb(151, 202, 212) 100%
   );
 }
-
+button {
+  background-color: rgb(251, 246, 223);
+  color:#975757;
+  box-shadow: 0 1px 5px #120c3876, 0 1px 5px 0 #9a3f6b76;
+  border-style: dotted;
+  border-color:  rgb(251, 246, 223);
+  padding: 10px;
+  font-size: 20px;
+}
 
 .container {
   display: flex;
@@ -14,10 +22,10 @@ body {
   text-align: center;
   background-color: rgba(255, 255, 255, 0);
   color: rgb(0, 0, 0);
-  color: white;
+  color: #975757;
 	font-size: 35px;
-	-webkit-text-stroke: 0.1px #F8F8F8;
-	text-shadow: 0px 2px 4px rgb(100, 100, 100);
+	-webkit-text-stroke: 0.1px #975757;
+	text-shadow: 0px 2px 4px rgb(255, 255, 255);
 
   margin: 4px;
   margin-left: 10%;
@@ -37,7 +45,7 @@ body {
 }
 
 .right {
-  background-color: rgba(255, 242, 211, 0.44);
+  background-color: #fffbe176;
   padding: 10px;
   flex: 70%;
 }
@@ -57,7 +65,7 @@ img:hover {
   border-color: rgb(201, 201, 201);
 } */
 .topnav {
-  background-color:  rgb(242, 227, 151);
+  background-color:  rgb(251, 246, 223);
   overflow: hidden;
   box-shadow: 0 1px 5px #120c3876, 0 1px 5px 0 #9a3f6b76;
 
@@ -83,6 +91,9 @@ img:hover {
 /* Add a color to the active/current link */
 .topnav a.active {
   background-color: #d18484;
-  color: rgb(242, 227, 151);
+  color: rgb(253, 247, 216);
 
+}
+.camera{
+  flex-direction: column;
 }

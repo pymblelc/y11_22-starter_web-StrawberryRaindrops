@@ -11,6 +11,10 @@ let myWebcam = document.getElementById("webcam");
 let myCanvas = document.getElementById("canvas");
 let ctx = myCanvas.getContext("2d");
 let submitBtn = document.getElementById("submit");
+
+var haircolor;
+var lipMakeup;
+var glasses;
 // const snapSoundElement = document.getElementById('snapSound');
 
 let webcam = new Webcam(myWebcam, "user", myCanvas); 
@@ -31,7 +35,7 @@ stopCameraBtn.addEventListener("click", function () {
 });
 
 takePhotoBtn.addEventListener("click", function () {
-  var picture = webcam.snap(); // what
+  var picture = webcam.snap(); 
   webcam.stop();
 });
 
@@ -40,84 +44,77 @@ submitBtn.addEventListener("click", function () {
     ImageAPI.analyseFacesBlob(blob, (data) => {
       
       for (let i = 0; i < data.length; i++) {
-        let haircolor = data[i].faceAttributes.hair.hairColor[0].color;
-        let lipstick = data[i].faceAttributes.makeup.lipMakeup;
-        let glasses = data[i].faceAttributes.glasses;
-        if (i >= 1){
+        haircolor = data[i].faceAttributes.hair.hairColor[0].color;
+        glasses = data[i].faceAttributes.glasses;
+        lipstick = data[i].faceAttributes.makeup.lipMakeup;
+        let mask = data[i].faceAttributes.occlusion.mouthOccluded;
+
+        if (i == 1) {
+          console.log("there is one person in the image")
+          document.location.href = "results.html";
+        } else {
           console.log("too many people")
+          document.location.href = "error.html";
         }
-        console.log(data[i].faceAttributes.hair.hairColor[1].confidence);
+        if (mask == false) {
+          console.log("they aren't wearing a mask")
+          document.location.href = "results.html";
+        } else {
+          console.log("wearing a mask")
+          document.location.href = "error.html";
+        }
         console.log(data);
-  
-        // myText.innerHTML += txt;
-        
-        // function text (number) {
-        //   let hairText = hair[number].text; 
-        //   let hairImg = hair[number].image;
-        //   document.getElementById("hairImg").src = hairImg
-        //   textBox2.innerHTML += hairText;
-        // }
-
-        if (haircolor == "black") {
-          let number = 0
-        
-          let hairText = hair[0].text; //this tells hairtext to match with the matching hair colour from the hair array
-          let hairImg = hair[0].image;
-          document.getElementById("hairImg").src = hairImg
-          textBox2.innerHTML += hairText;
-        }
-        
-        if (haircolor == "blond") {
-          let hairText = hair[1].text; //this tells hairtext to match with the matching hair colour from the hair array
-          textBox2.innerHTML += hairText;
-        }
-        
-        if (glasses == "NoGlasses") {
-          let glassesText = pants[0].text;
-          textBox4.innerHTML += glassesText;
-
-        }
-      // console.log(data[i].faceAttributes.glasses);
       }
-   
+        
+      });
     });
   });
-});
-
-// var picture = webcam.snap();
-
-// results.innerHTML = imageURL;
-
-// myButton.addEventListener("click", function () {
-//   ImageAPI.analyseFaces(imageURL, function (data) {
-//     for (let i = 0; i < data.length; i++) {
-//       let finalInfo = data[i].faceAttributes.hair.hairColor[0].color;
-//       let lipstick = data[1].faceAttributes.makeup.lipMakeup;
-//       let glasses = data[1].faceAttributes.glasses;
-//       let txt =
-//         "<p>Face " +
-//         (i + 1) +
-//         ": age is " +
-//         finalInfo +
-//         ", lipstick = " +
-//         lipstick +
-//         " are they wearing glasses? : " +
-//         glasses;
-//       ("</p>");
-
-//       myText.innerHTML += txt;
-
-//       if (finalInfo == "black") {
-//         hairText == hair[0].top; //this tells hairtext to match with the matching hair colour from the hair array
-//       }
-
-//       if (finalInfo == "blond") {
-//         hairText == hair[1].top; //this tells hairtext to match with the matching hair colour from the hair array
-//       }
-//     }
-//     console.log(data);
-//   });
-// });
+  
+  getResults.addEventListener("click", function () {
+    document.location.href = "results.html";
+    
+    function topText (number) {
+      let hairText = hair[number].text; 
+      let hairImg = hair[number].image;
+      document.getElementById("hairImg").src = hairImg
+      textBox2.innerHTML += hairText;
+      document.location.href = "results.html";
+    }
+    
+    if (haircolor == "black") {
+      topText(0)
+    }
+    if (haircolor == "blond") {
+      topText(1)
+    }
+    if (haircolor == "brown") {
+      topText(2)
+    }       
+    if (haircolor == "red") {
+      topText(3)
+    }
+    if (haircolor == "unknown") {
+      topText(4)
+    }
+    if (haircolor == "other") {
+      topText(4)
+    }
+    if (haircolor == "white") {
+      topText(5)
+    }
+    if (haircolor == "gray") {
+      topText(5)
+    }
+  
+  
+    if (glasses == "NoGlasses") {
+      let glassesText = pants[0].text;
+      textBox4.innerHTML += glassesText;
+  
+    }
+  // console.log(data[i].faceAttributes.glasses);
+  }
+  );
 
 
 
@@ -125,28 +122,33 @@ submitBtn.addEventListener("click", function () {
 hair = [
   {
     hair: "black",
-    text: "This is a chic top to cover up from the sun while still being stylish. This top is reminiscent of korean street fashion and kpop fashion.",
-    image: "small-child.jpg"
+    text: "This is a chic top to cover up from the sun while still being stylish. This top is reminiscent of korean street fashion and kpop fashion. Some substitutes for this may be a black singlet with spaghetti straps over a plain white t-shirt to achieve a similar look.",
+    image: "black.PNG",
   },
   {
     hair: "blond",
-    text: "frilly top hehe",
+    text: "This is a summer-y corset bodice top with cute sleeves. It gives princess vibes while being elegant and mature at the same time. Very nice to wear to go shopping or sight seeing. A substitute for this top may be a flowery t-shirt from uniqlo.",
+    image: "blond.PNG",
   },
   {
     hair: "brown",
-    text: "this top ahahaha",
+    text: "This over the shoulder white shirt look is nice for a sunny day but you still want to be stylish. It gives off elegant and mature vibes but also has a modern and chic aesthetic when paired with pants. This top can be substituted with a plain white graphic tshirt if you are uncomfortable with the mature look.",
+   image:"brown",
   },
   {
     hair: "red",
-    text: "comfyyyyy yah",
+    text: "This is a cute top that suits any weather. The sheer cardigan gives the look at cute and cozy vibe. A nice cafe look or to go out with friends. A substitute for this top would be a white singlet with a bulky cardigen to go for the oversized look.",
+    image:"red.PNG",
   },
   {
     hair: "unknown&other",
-    text: "thissss thingy",
+    text: "comfy clothing",
+    image: "unknown_other.PNG",
   },
   {
     hair: "white&gray",
-    text: "bonk",
+    text: "This red knitted crop top is a very cute piece to fit a romantic look. This is reminiscent of french fashion which is very clean and sleek. Any red top would be a good substitute if crop tops are not your type. ",
+    image: "white_gray.PNG",
   }
 ];
 
