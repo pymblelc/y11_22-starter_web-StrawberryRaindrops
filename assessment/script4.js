@@ -122,7 +122,7 @@ getResults.addEventListener("click", function () {
         if (lipstick == false) {
           shoesText(1);
         }
-        
+        console.log(shoes[0].image)
       }
     });
   });
@@ -179,11 +179,11 @@ shoes = [
   {
     lipstick: "true",
     text: "White boot heels fit with any outfit, it gives you an extra bit of height and helps highlight the length of your legs.",
-    image: "yesLipstick.PNG,",
+    image: "yesLipstick.PNG",
   },
   {
     lipstick: "false",
-    text: "plain white sneakers to tie in the outfit and help you stay confortable where ever you go.",
+    text: "Plain white sneakers to tie in the outfit and help you stay confortable where ever you go.",
     image: "noLipstick.PNG",
   },
 ];
