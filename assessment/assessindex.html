@@ -71,16 +71,18 @@
 <div id= "cameraId" class ="camera">
   <button id="startCamera">Start Camera</button>
   <button id="stopCamera">Stop Camera</button>
-  <video id="webcam" width="160" height="120"></video>
+  <video id="webcam" width="320" height="240"></video>
     <button id="takePhoto">Take Photo</button>
     <canvas id="canvas" class="capturedImage"> </canvas>
-    <button id="submit" onclick="hideDiv()"> Submit</button>
+    <button id="submit" onclick="hideDiv()" onclick="showDiv()"> Submit</button>
     
   </div>
 
-  <button id="getResults" onclick="showDiv()">Get results</button>
+  <div class="result" id="resultId">
+    <button id="getResults" onclick="showDiv()">Get results</button>
+  </div>
 
-    <div id="boxId" class="box">
+  <div id="boxId" class="box">
     <div class="container">
       <img src="" id="hairImg" class="left" />
       <div class="right" id="textBox2"></div>

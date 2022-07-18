@@ -14,6 +14,7 @@ function showDiv() {
 }
 function hideDiv() {
   document.getElementById("cameraId").style.display = "none";
+  document.getElementById("resultId").style.display = "block";
   console.log("hide");
 }
 //this is the start camera button
