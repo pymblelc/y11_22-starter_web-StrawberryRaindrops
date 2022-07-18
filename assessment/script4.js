@@ -7,7 +7,7 @@ let myCanvas = document.getElementById("canvas");
 let ctx = myCanvas.getContext("2d");
 let submitBtn = document.getElementById("submit");
 let webcam = new Webcam(myWebcam, "user", myCanvas);
-
+//these functions are to hide or show stuff
 function showDiv() {
   document.getElementById("boxId").style.display = "block";
   console.log("hidden camera and shown results");
@@ -16,7 +16,7 @@ function hideDiv() {
   document.getElementById("cameraId").style.display = "none";
   console.log("hide");
 }
-
+//this is the start camera button
 startCameraBtn.addEventListener("click", function () {
   webcam
     .start()
@@ -43,7 +43,7 @@ submitBtn.addEventListener("click", function () {
     ImageAPI.analyseFacesBlob(blob, (data) => { //the blob is then fed into the API
       for (let i = 0; i < data.length; i++) {
         let mask = data[i].faceAttributes.occlusion.mouthOccluded; //this analyses whether the person has a mouth covering
-
+        
         if (i == 1) {
           console.log("too many people");
           document.location.href = "error.html";
@@ -59,10 +59,11 @@ submitBtn.addEventListener("click", function () {
     });
   });
 });
-//this is the retry button from the error screen that brings you back to the main screen
-retryBtn.addEventListener("click", function () {
-  document.location.href = "analysis.html";
-});
+// //this is the retry button from the error screen that brings you back to the main screen
+// retryBtn.addEventListener("click", function () {
+//   document.location.href = "analysis.html";
+//   console.log("i tired to go back ahahaha")
+// });
 // this button goes through the image again to get the results
 getResults.addEventListener("click", function () {
   myCanvas.toBlob(function (blob) {
