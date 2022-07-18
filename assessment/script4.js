@@ -36,12 +36,13 @@ takePhotoBtn.addEventListener("click", function () {
   var picture = webcam.snap();
   webcam.stop();
 });
-
+//this submit button checks whether a person is covering their face or have many people in camera view and if they do,
+//it sends them to the error screen
 submitBtn.addEventListener("click", function () {
-  myCanvas.toBlob(function (blob) {
-    ImageAPI.analyseFacesBlob(blob, (data) => {
+  myCanvas.toBlob(function (blob) { //this takes the data from the canvas and the data is turned into a blob
+    ImageAPI.analyseFacesBlob(blob, (data) => { //the blob is then fed into the API
       for (let i = 0; i < data.length; i++) {
-        let mask = data[i].faceAttributes.occlusion.mouthOccluded;
+        let mask = data[i].faceAttributes.occlusion.mouthOccluded; //this analyses whether the person has a mouth covering
 
         if (i == 1) {
           console.log("too many people");
@@ -58,22 +59,27 @@ submitBtn.addEventListener("click", function () {
     });
   });
 });
+//this is the retry button from the error screen that brings you back to the main screen
+retryBtn.addEventListener("click", function () {
+  document.location.href = "analysis.html";
+});
 // this button goes through the image again to get the results
 getResults.addEventListener("click", function () {
   myCanvas.toBlob(function (blob) {
     ImageAPI.analyseFacesBlob(blob, (data) => {
       for (let i = 0; i < data.length; i++) {
+        //these check for the hair colour, whether they wear glasses or wear lipstick
         let haircolor = data[i].faceAttributes.hair.hairColor[0].color;
         let glasses = data[i].faceAttributes.glasses;
         let lipstick = data[i].faceAttributes.makeup.lipMakeup;
 
-        function topText (number) {
-          let hairText = hair[number].text; 
-          let hairImg = hair[number].image;
-          document.getElementById("hairImg").src = hairImg
-          textBox2.innerHTML += hairText;
+        function topText (number) { //this function is for the 1st row of boxes in the results
+          let hairText = hair[number].text; //this is turning the hairText into a text message from the array
+          let hairImg = hair[number].image; // this is doing the same thing as text but for image
+          document.getElementById("hairImg").src = hairImg //this tells the image div to turn into the image from the array
+          textBox2.innerHTML += hairText; //this tells the div to turn into the text from the array
         }
-        function pantsText (number) {
+        function pantsText (number) { //the functions for pants and shoes are the exact same to the top 
           let pantsText = pants[number].text; 
           let pantsImg = pants[number].image;
           document.getElementById("pantsImg").src = pantsImg
@@ -85,8 +91,8 @@ getResults.addEventListener("click", function () {
           document.getElementById("shoesImg").src = shoesImg
           textBox6.innerHTML += shoesText;
         }
-
-        if (haircolor == "black") {
+        //haircolour
+        if (haircolor == "black") { //this checks what the ai brought back and if the haircolour is black then it runs the topText function with the details for black hair from the hair array
           topText(0);
         }
         if (haircolor == "blond") {
@@ -110,12 +116,14 @@ getResults.addEventListener("click", function () {
         if (haircolor == "gray") {
           topText(5);
         }
+        //glasses
         if (glasses == "NoGlasses") {
           pantsText(0);
         }
         if (glasses == "ReadingGlasses") {
           pantsText(1);
         }
+        //lipstick
         if (lipstick == true) {
           shoesText(0);
         }
@@ -128,12 +136,14 @@ getResults.addEventListener("click", function () {
   });
 });
 
-//this is where i'll write a little description for each top
-hair = [
+//arrays
+
+hair = [//this is the array for the haircolour
   {
-    hair: "black",
+    hair: "black",//this indicates to me which hair colour i'm writing for
+    //below is the text message that describes the image
     text: "This is a chic top to cover up from the sun while still being stylish. This top is reminiscent of korean street fashion and kpop fashion. Some substitutes for this may be a black singlet with spaghetti straps over a plain white t-shirt to achieve a similar look.",
-    image: "black.PNG",
+    image: "black.PNG", //this is the image of the top that i've picked to match black hair
   },
   {
     hair: "blond",
