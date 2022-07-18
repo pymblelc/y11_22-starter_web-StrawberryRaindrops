@@ -15,7 +15,12 @@ button {
   padding: 10px;
   font-size: 20px;
 }
-
+button:hover {
+  cursor: pointer;
+}
+.box {
+  display: none;
+}
 .container {
   display: flex;
   font-size: 30px;
@@ -31,6 +36,7 @@ button {
   margin-left: 10%;
   margin-right: 10%;
   overflow: auto;
+  
 }
 * {
   box-sizing: border-box;
@@ -39,7 +45,7 @@ button {
 .left {
   background-color: #fffbe176;
   padding: 10px;
-  width: 200px;
+  width: 20%;
   border-radius: 10%;
   transform: scale(0.95);
 }
@@ -54,16 +60,7 @@ img:hover {
   transform: scale(1);
   cursor: pointer;
 }
-/* .header {
-  padding: 5px;
-  text-align: center;
-  background: #ffffff;
-  font-size: 10px;
 
-  position: relative;
-  border-style: dashed;
-  border-color: rgb(201, 201, 201);
-} */
 .topnav {
   background-color:  rgb(251, 246, 223);
   overflow: hidden;
@@ -82,18 +79,10 @@ img:hover {
   
 }
 
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
 /* Add a color to the active/current link */
 .topnav a.active {
   background-color: #d18484;
   color: rgb(253, 247, 216);
 
 }
-.camera{
-  flex-direction: column;
-}
+

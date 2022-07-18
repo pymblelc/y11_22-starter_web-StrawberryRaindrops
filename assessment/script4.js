@@ -11,13 +11,21 @@ let myWebcam = document.getElementById("webcam");
 let myCanvas = document.getElementById("canvas");
 let ctx = myCanvas.getContext("2d");
 let submitBtn = document.getElementById("submit");
+let webcam = new Webcam(myWebcam, "user", myCanvas); 
 
 var haircolor;
 var lipMakeup;
 var glasses;
-// const snapSoundElement = document.getElementById('snapSound');
 
-let webcam = new Webcam(myWebcam, "user", myCanvas); 
+function showDiv(){
+  document.getElementById("boxId").style.display = "block";
+  console.log("block");
+}; 
+function hideDiv(){
+  document.getElementById("cameraId").style.display = "none";
+  console.log("hide");
+}; 
+
 
 startCameraBtn.addEventListener("click", function () {
   webcam
@@ -50,16 +58,12 @@ submitBtn.addEventListener("click", function () {
         let mask = data[i].faceAttributes.occlusion.mouthOccluded;
 
         if (i == 1) {
-          console.log("there is one person in the image")
-          document.location.href = "results.html";
-        } else {
           console.log("too many people")
           document.location.href = "error.html";
+        }else{
+          console.log("1 person")
         }
-        if (mask == false) {
-          console.log("they aren't wearing a mask")
-          document.location.href = "results.html";
-        } else {
+        if (mask == true) {
           console.log("wearing a mask")
           document.location.href = "error.html";
         }
@@ -71,14 +75,13 @@ submitBtn.addEventListener("click", function () {
   });
   
   getResults.addEventListener("click", function () {
-    document.location.href = "results.html";
     
     function topText (number) {
       let hairText = hair[number].text; 
       let hairImg = hair[number].image;
       document.getElementById("hairImg").src = hairImg
       textBox2.innerHTML += hairText;
-      document.location.href = "results.html";
+      document.getElementById("boxId").style.display = "show";
     }
     
     if (haircolor == "black") {
@@ -157,25 +160,25 @@ pants = [
   {
     glasses: "NoGlasses",
     text: "very minimalistic pants to compliment the top. This also gives an elegant vibe to your outfit which is nice to wear on a date with friends.",
-    image:"textiles-dress.png"
+    image:"noGlasses"
   },
   {
     glasses: "ReadingGlasses",
-    text: "a",
-    image:"textiles-dress.png",
+    text: "Nice torn black jeans to pair with any top, they are confortable to wear and helps give you outfit a casual vibe.",
+    image:"yesGlasses",
   }
 ];
     
 shoes = [
   {
     lip: "true",
-    text: "r",
-    image: "textiles-dress.png,"
+    text: "White boot heels fit with any outfit, it gives you an extra bit of height and helps highlight the length of your legs.",
+    image: "yesMakeup.PNG,"
   },
   {
     lip: "false",
-    text: "r",
-    image: "textile-dress.png",
+    text: "plain white sneakers to tie in the outfit and help you stay confortable where ever you go.",
+    image: "noMakeup.PNG",
   }
 ];
     

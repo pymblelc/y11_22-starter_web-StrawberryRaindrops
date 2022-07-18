@@ -62,43 +62,58 @@
     <div class="topnav">
       <a class="active" href="#home"><span class="material-symbols-outlined">
         photo_camera
-        </span>
+      </span>
       <a href="#news">Camera</a>
-
+      
     </div>
 
-<!-- 
-    <div class="box">
+    <!-- <style>#div1 { display: none; width: 300px; height: 200px; background: #7bbfa2; }</style><div>
+      <div id="div1"></div>
+      <div class="click-me" onclick="showDiv()">Show hidden div</div>
+      <div class="click-me" onclick="hideDiv()">Hide div</div>
+    </div>
+    
+    <script>
+    
+    function showDiv(){
+      document.getElementById("cameraId").style.display = "block";
+    }; 
+    function hideDiv(){
+      document.getElementById("boxId").style.display = "none";
+    }; 
+    
+    </script> -->
+    
+
+    <!--webcam stuff-->
+<div id= "cameraId" class ="camera">
+  <button id="startCamera">Start Camera</button>
+  <button id="stopCamera">Stop Camera</button>
+  <video id="webcam" width="160" height="120"></video>
+    <button id="takePhoto">Take Photo</button>
+    <canvas id="canvas" class="capturedImage"> </canvas>
+    <button id="submit" onclick="hideDiv()"> Submit</button>
+    
+  </div>
+
+  <button id="getResults" onclick="showDiv()">Get results</button>
+
+    <div id="boxId" class="box">
     <div class="container">
-      
       <img src="" id="hairImg" class="left" />
       <div class="right" id="textBox2"></div>
     </div>
-
     <div class="container">
-
-
-        <img src="" id="hairImg" class="left" />
-
+      <img src="" id="pantsImg" class="left" />
       <div class="right" id="textBox4"></div>
     </div>
-
     <div class="container">
-      <div class="left" id="textBox5"></div>
+      <img src="" id="shoesImg" class="left" />
       <div class="right" id="textBox6"></div>
     </div>
-    </div>
- -->
 
-    <!--webcam stuff-->
-<div class ="camera">
-    <button id="startCamera">Start Camera</button>
-    <button id="stopCamera">Stop Camera</button>
-    <video id="webcam" width="160" height="120"></video>
-    <button id="takePhoto">Take Photo</button>
-    <canvas id="canvas" class="capturedImage"> </canvas>
 
-    <button id="submit">Submit</button>
+
 
   </div>
   </head>
