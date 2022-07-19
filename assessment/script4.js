@@ -57,18 +57,18 @@ submitBtn.addEventListener("click", function () {
         
         if (i == 1) {
           console.log("too many people");
-          // document.location.href = "error.html";
+          document.location.href = "error.html";
         } else {
           console.log("1 person");
-          // hideDiv();
+          hideDiv();
         }
         if (mask == false) {
             console.log("not wearing mask")
-            // hideDiv();
+            hideDiv();
             
           }else{
             console.log("wearing a mask");
-            // document.location.href = "error.html";
+            document.location.href = "error.html";
         }
         console.log(data[i].faceAttributes.occlusion.mouthOccluded);
       }
@@ -210,3 +210,4 @@ shoes = [
     image: "noLipstick.PNG",
   },
 ];
+

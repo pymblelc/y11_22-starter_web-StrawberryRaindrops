@@ -54,6 +54,7 @@ button:hover {
   width: 20%;
   border-radius: 10%;
   transform: scale(0.95);
+  display: block;
 }
 /* this is styling for the text side of the results */
 .right {
@@ -94,20 +95,20 @@ img:hover {
 /* this adds styling to the reason for error on the error screen */
 .reason{
   color: rgb(0, 0, 0);
-  color: #975757;
+font-family: Arial, Helvetica, sans-serif;
 	font-size: 30px;
 	-webkit-text-stroke: 0.1px #975757;
-	text-shadow: 0px 2px 4px rgb(255, 255, 255);
+
   background-color: #fffbe176;
   padding: 10px;
   flex: 70%;
 }
 .capturedImage{
-  width: var(--width);
-  height: var(--height);
+  width: 650px;
+  height: 490px;
   position:relative;
   top: 80px;
-  display:flex;
+  display:block;
   border-style:solid; 
   border-color:rgb(251, 246, 223);
   border-radius:3px;
@@ -147,7 +148,7 @@ img:hover {
   height: var(--height);
   position:relative;
   top: 80px;
-  display:flex;
+  display:block;
   border-style:solid; 
   border-color:rgb(251, 246, 223);
   border-radius:3px;
@@ -157,7 +158,12 @@ img:hover {
   box-shadow: 0 1px 5px #120c3876, 0 1px 5px 0 #9a3f6b76;
 }
 #canvas{
-  flex: auto;
+  display: inline-block;
   display: none;
   overflow: auto;
+}
+#getResults{
+  display:flex;
+  justify-content: center;
+  text-align: center;
 }
