@@ -41,9 +41,10 @@ startCameraBtn.addEventListener("click", function () {
     .catch((error) => {
       console.log("error D:");
     });
-title.innerHTML += "Camera";
-icon.innerHTML += "<span class='material-symbols-outlined'>photo_camera</span>"
-});
+  });
+  
+  title.innerHTML = "Camera";
+  icon.innerHTML = "<span class='material-symbols-outlined'>photo_camera</span>"
 
 stopCameraBtn.addEventListener("click", function () {
   webcam.stop();
@@ -85,8 +86,8 @@ submitBtn.addEventListener("click", function () {
         }
         console.log(data[i].faceAttributes.occlusion.mouthOccluded);
         //this changes the title of the nav bar when you get your results.
-        title.innerHTML += "Results";
-        icon.innerHTML += "<span class='material-symbols-outlined'>styler</span>"
+        title.innerHTML = "Results";
+        icon.innerHTML = "<span class='material-symbols-outlined'>styler</span>"
       }
     });
   });
