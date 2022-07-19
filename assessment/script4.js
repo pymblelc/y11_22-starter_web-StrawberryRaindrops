@@ -1,3 +1,8 @@
+//this is for the top 'navigation bar'
+let icon = document.getElementById("icon");
+let title = document.getElementById("title");
+
+let box = document.getElementById("boxId")
 //these are for the camera bits
 let startCameraBtn = document.getElementById("startCamera");
 let stopCameraBtn = document.getElementById("stopCamera");
@@ -23,6 +28,9 @@ function showcanvas(){
 function hidecamera(){
   document.getElementById("webcam").style.display = "none";
 }
+function changeTitle(){
+  icon.innerHTML
+}
 //this is the start camera button
 startCameraBtn.addEventListener("click", function () {
   webcam
@@ -33,7 +41,8 @@ startCameraBtn.addEventListener("click", function () {
     .catch((error) => {
       console.log("error D:");
     });
-
+title.innerHTML += "Camera";
+icon.innerHTML += "<span class='material-symbols-outlined'>photo_camera</span>"
 });
 
 stopCameraBtn.addEventListener("click", function () {
@@ -46,6 +55,10 @@ takePhotoBtn.addEventListener("click", function () {
   showcanvas();
   hidecamera();
 });
+// if (document.getElementById("boxId").style.display === "none"){
+// title.innerHTML += "Camera";
+// icon.innerHTML += "<span class='material-symbols-outlined'>photo_camera</span>"
+// }
 //this submit button checks whether a person is covering their face or have many people in camera view and if they do,
 //it sends them to the error screen
 submitBtn.addEventListener("click", function () {
@@ -71,6 +84,9 @@ submitBtn.addEventListener("click", function () {
             document.location.href = "error.html";
         }
         console.log(data[i].faceAttributes.occlusion.mouthOccluded);
+        //this changes the title of the nav bar when you get your results.
+        title.innerHTML += "Results";
+        icon.innerHTML += "<span class='material-symbols-outlined'>styler</span>"
       }
     });
   });
