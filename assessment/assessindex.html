@@ -60,7 +60,7 @@
     </div> -->
 
     <div class="topnav">
-      <a class="active" href="#home"><span class="material-symbols-outlined">
+      <a class="active"><span class="material-symbols-outlined">
         photo_camera
       </span>
       <a href="#news">Camera</a>
@@ -72,15 +72,18 @@
   <button id="startCamera">Start Camera</button>
   <button id="stopCamera">Stop Camera</button>
   <video id="webcam" width="320" height="240"></video>
-    <button id="takePhoto">Take Photo</button>
-    <canvas id="canvas" class="capturedImage"> </canvas>
-    <button id="submit" onclick="hideDiv()" onclick="showDiv()"> Submit</button>
+  <canvas id="canvas" class="capturedImage"> </canvas>
+  <button id="takePhoto" onclick="showcanvas()" >Take Photo</button>
+    <button id="submit" > Submit</button>
     
   </div>
 
   <div class="result" id="resultId">
+    <div id="reason"class="reason">A beautiful outfit has been created to suit you based on my fashion knowledge. Press the button below to get your results!</div>
     <button id="getResults" onclick="showDiv()">Get results</button>
+
   </div>
+
 
   <div id="boxId" class="box">
     <div class="container">

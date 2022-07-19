@@ -103,10 +103,61 @@ img:hover {
   flex: 70%;
 }
 .capturedImage{
-  width: 360px;
-  height: 240px;
+  width: var(--width);
+  height: var(--height);
+  position:relative;
+  top: 80px;
+  display:flex;
+  border-style:solid; 
+  border-color:rgb(251, 246, 223);
+  border-radius:3px;
+  border-width:5px;
+  border-bottom-right-radius: 0%;
+  border-top-right-radius: 0%;
+  box-shadow: 0 1px 5px #120c3876, 0 1px 5px 0 #9a3f6b76;
 }
 .result{
   align-self: center;
   display: none;
+}
+.camera {
+  display: flex;
+  justify-content: space-around;
+  
+}
+
+#startCamera {
+  margin: 2vw;
+  height: fit-content;
+}
+#stopCamera{
+  margin: 2vw;
+  height: fit-content;
+}
+#takePhoto {
+  margin: 2vw;
+  height: fit-content;
+}
+#submit{
+  margin: 2vw;
+  height: fit-content;
+}
+#webcam {
+  width: var(--width);
+  height: var(--height);
+  position:relative;
+  top: 80px;
+  display:flex;
+  border-style:solid; 
+  border-color:rgb(251, 246, 223);
+  border-radius:3px;
+  border-width:5px;
+  border-bottom-right-radius: 0%;
+  border-top-right-radius: 0%;
+  box-shadow: 0 1px 5px #120c3876, 0 1px 5px 0 #9a3f6b76;
+}
+#canvas{
+  flex: auto;
+  display: none;
+  overflow: auto;
 }

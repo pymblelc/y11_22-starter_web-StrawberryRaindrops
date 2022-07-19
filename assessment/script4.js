@@ -17,6 +17,12 @@ function hideDiv() {
   document.getElementById("resultId").style.display = "block";
   console.log("hide");
 }
+function showcanvas(){
+  document.getElementById("canvas").style.display = "block";
+}
+function hidecamera(){
+  document.getElementById("webcam").style.display = "none";
+}
 //this is the start camera button
 startCameraBtn.addEventListener("click", function () {
   webcam
@@ -27,6 +33,7 @@ startCameraBtn.addEventListener("click", function () {
     .catch((error) => {
       console.log("error D:");
     });
+
 });
 
 stopCameraBtn.addEventListener("click", function () {
@@ -36,10 +43,13 @@ stopCameraBtn.addEventListener("click", function () {
 takePhotoBtn.addEventListener("click", function () {
   var picture = webcam.snap();
   webcam.stop();
+  showcanvas();
+  hidecamera();
 });
 //this submit button checks whether a person is covering their face or have many people in camera view and if they do,
 //it sends them to the error screen
 submitBtn.addEventListener("click", function () {
+  console.log("submit button pressed")
   myCanvas.toBlob(function (blob) { //this takes the data from the canvas and the data is turned into a blob
     ImageAPI.analyseFacesBlob(blob, (data) => { //the blob is then fed into the API
       for (let i = 0; i < data.length; i++) {
@@ -47,15 +57,20 @@ submitBtn.addEventListener("click", function () {
         
         if (i == 1) {
           console.log("too many people");
-          document.location.href = "error.html";
+          // document.location.href = "error.html";
         } else {
           console.log("1 person");
+          // hideDiv();
         }
-        if (mask == true) {
-          console.log("wearing a mask");
-          document.location.href = "error.html";
+        if (mask == false) {
+            console.log("not wearing mask")
+            // hideDiv();
+            
+          }else{
+            console.log("wearing a mask");
+            // document.location.href = "error.html";
         }
-        console.log(data);
+        console.log(data[i].faceAttributes.occlusion.mouthOccluded);
       }
     });
   });
@@ -151,7 +166,7 @@ hair = [//this is the array for the haircolour
   {
     hair: "brown",
     text: "This over the shoulder white shirt look is nice for a sunny day but you still want to be stylish. It gives off elegant and mature vibes but also has a modern and chic aesthetic when paired with pants. This top can be substituted with a plain white graphic tshirt if you are uncomfortable with the mature look.",
-    image: "brown",
+    image: "brown.PNG",
   },
   {
     hair: "red",
