@@ -1,7 +1,7 @@
 //this is for the top 'navigation bar'
 let icon = document.getElementById("icon");
 let title = document.getElementById("title");
-
+//this is for the results
 let box = document.getElementById("boxId")
 //these are for the camera bits
 let startCameraBtn = document.getElementById("startCamera");
@@ -9,7 +9,7 @@ let stopCameraBtn = document.getElementById("stopCamera");
 let takePhotoBtn = document.getElementById("takePhoto");
 let myWebcam = document.getElementById("webcam");
 let myCanvas = document.getElementById("canvas");
-let ctx = myCanvas.getContext("2d");
+// let ctx = myCanvas.getContext("2d");
 let submitBtn = document.getElementById("submit");
 let webcam = new Webcam(myWebcam, "user", myCanvas);
 //these functions are to hide or show stuff
@@ -20,7 +20,7 @@ function showDiv() {
 function hideDiv() {
   document.getElementById("cameraId").style.display = "none";
   document.getElementById("resultId").style.display = "block";
-  console.log("hide");
+  console.log("hide"); 
 }
 function showcanvas(){
   document.getElementById("canvas").style.display = "block";
@@ -28,9 +28,7 @@ function showcanvas(){
 function hidecamera(){
   document.getElementById("webcam").style.display = "none";
 }
-function changeTitle(){
-  icon.innerHTML
-}
+
 //this is the start camera button
 startCameraBtn.addEventListener("click", function () {
   webcam
@@ -43,8 +41,6 @@ startCameraBtn.addEventListener("click", function () {
     });
   });
   
-  title.innerHTML = "Camera";
-  icon.innerHTML = "<span class='material-symbols-outlined'>photo_camera</span>"
 
 stopCameraBtn.addEventListener("click", function () {
   webcam.stop();
@@ -164,6 +160,10 @@ getResults.addEventListener("click", function () {
       }
     });
   });
+});
+//back button after you get the results
+backBtn.addEventListener("click", function () {
+  document.location.href = "assessindex.html";
 });
 
 //arrays
