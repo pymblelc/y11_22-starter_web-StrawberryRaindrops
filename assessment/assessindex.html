@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"
+      defer
+    ></script>
+    <!-- this is a library -->
+    <script src="ai.js" defer></script>
+    <script src="script4.js" defer></script>
+    <link rel="stylesheet" href="style4.css" />
+
+    <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+  </head>
+
+  <!--[if gte mso 9
+    ]><xml>
+      <mso:CustomDocumentProperties>
+        <mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_SharedWithUsers
+          msdt:dt="string"
+          >11 Software Design and Development 01-2022
+          Members</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_SharedWithUsers
+        >
+        <mso:SharedWithUsers msdt:dt="string"
+          >7;#11 Software Design and Development 01-2022
+          Members</mso:SharedWithUsers
+        >
+      </mso:CustomDocumentProperties>
+    </xml><!
+  [endif]-->
+
+  <body>
+   <!-- This is the top bar -->
+    <div class="topnav">
+      <a class="active" id="icon"><span class='material-symbols-outlined'>photo_camera</span>
+      <a id="title">Camera</a>
+      
+      
+    </div>
+
+    <!--webcam-->
+<div id= "cameraId" class ="camera">
+  <button id="startCamera">Start Camera</button>
+  <button id="stopCamera">Stop Camera</button>
+  <video id="webcam" width="320" height="240"></video>
+  <canvas id="canvas" class="capturedImage"width="650px" height="490px"> </canvas>
+  <button id="takePhoto" onclick="showcanvas()" >Take Photo</button>
+    <button id="submit" > Submit</button>
+    
+  </div>
+<!-- get result button -->
+  <div class="result" id="resultId">
+    <div id="reason"class="reason">A beautiful outfit has been created to suit you based on my fashion knowledge. Press the button below to get your results!</div>
+    <button id="getResults" onclick="showDiv()">Get results</button>
+
+  </div>
+
+<!-- results box -->
+  <div id="boxId" class="box">
+    <div class="container">
+      <img src="" id="hairImg" class="left" />
+      <div class="right" id="textBox2"></div>
+    </div>
+    <div class="container">
+      <img src="" id="pantsImg" class="left" />
+      <div class="right" id="textBox4"></div>
+    </div>
+    <div class="container">
+      <img src="" id="shoesImg" class="left" />
+      <div class="right" id="textBox6"></div>
+    </div>
+    <!-- back button -->
+    <button id="backBtn">Back</button>
+
+  </div>
+  </head>
+</html>
+
