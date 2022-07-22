@@ -12,6 +12,8 @@ let myCanvas = document.getElementById("canvas");
 // let ctx = myCanvas.getContext("2d");
 let submitBtn = document.getElementById("submit");
 let webcam = new Webcam(myWebcam, "user", myCanvas);
+
+
 //these functions are to hide or show stuff
 function showDiv() {
   document.getElementById("boxId").style.display = "block";
@@ -28,6 +30,10 @@ function showcanvas(){
 function hidecamera(){
   document.getElementById("webcam").style.display = "none";
 }
+
+
+//BUTTONS
+
 
 //this is the start camera button
 startCameraBtn.addEventListener("click", function () {
@@ -52,10 +58,7 @@ takePhotoBtn.addEventListener("click", function () {
   showcanvas();
   hidecamera();
 });
-// if (document.getElementById("boxId").style.display === "none"){
-// title.innerHTML += "Camera";
-// icon.innerHTML += "<span class='material-symbols-outlined'>photo_camera</span>"
-// }
+
 //this submit button checks whether a person is covering their face or have many people in camera view and if they do,
 //it sends them to the error screen
 submitBtn.addEventListener("click", function () {
@@ -65,22 +68,20 @@ submitBtn.addEventListener("click", function () {
       for (let i = 0; i < data.length; i++) {
         let mask = data[i].faceAttributes.occlusion.mouthOccluded; //this analyses whether the person has a mouth covering
         
-        if (i == 1) {
+        if (i == 1) { //this is the people detected is more that 1
           console.log("too many people");
-          document.location.href = "error.html";
+          document.location.href = "error.html"; //if there is more than one person, it sends you to the error screen
         } else {
           console.log("1 person");
           hideDiv();
         }
-        if (mask == false) {
+        if (mask == false) { //this checks whether they are wearing a mask or not
             console.log("not wearing mask")
-            hideDiv();
-            
+            hideDiv(); //if they aren't wearing a mask, it hides the camera section
           }else{
             console.log("wearing a mask");
             document.location.href = "error.html";
         }
-        console.log(data[i].faceAttributes.occlusion.mouthOccluded);
         //this changes the title of the nav bar when you get your results.
         title.innerHTML = "Results";
         icon.innerHTML = "<span class='material-symbols-outlined'>styler</span>"
@@ -161,17 +162,24 @@ getResults.addEventListener("click", function () {
     });
   });
 });
+
+
 //back button after you get the results
 backBtn.addEventListener("click", function () {
   document.location.href = "assessindex.html";
 });
 
+
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 //arrays
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
 
 hair = [//this is the array for the haircolour
   {
-    hair: "black",//this indicates to me which hair colour i'm writing for
-    //below is the text message that describes the image
+    hair: "black",/*this indicates to me which hair colour i'm writing for
+    below is the text message that describes the image*/
     text: "This is a chic top to cover up from the sun while still being stylish. This top is reminiscent of korean street fashion and kpop fashion. Some substitutes for this may be a black singlet with spaghetti straps over a plain white t-shirt to achieve a similar look.",
     image: "black.PNG", //this is the image of the top that i've picked to match black hair
   },
